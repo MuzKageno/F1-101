@@ -865,7 +865,12 @@ const raceOutputDiv = document.getElementById('race-output');
 async function loadRaceEvents() {
     raceOutputDiv.innerHTML = '<p class="text-gray-400 text-center p-4">Loading example race events...</p>';
     try {
-        const res = await fetch('race_events.json');
+const data = {
+  events: [
+    { time: "12.5", type: "Yellow Flag", message: "Sector 1 incident" },
+    { time: "45.2", type: "Green Flag", message: "Track clear" }
+  ]
+};
         if (!res.ok) {
             throw new Error(`HTTP error! Status: ${res.status}`);
         }
