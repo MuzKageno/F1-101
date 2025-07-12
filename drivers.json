@@ -2,7 +2,7 @@
   {
     "name": "Max Verstappen",
     "team": "Red Bull Racing",
-    "image_url": "images/drivers/max-verstappen.jpg",
+    "image_url": "images/max-verstappen.jpg",
     "nationality": "Dutch",
     "dob": "1997-09-30",
     "world_championships": 4,
@@ -14,7 +14,7 @@
   {
     "name": "Yuki Tsunoda",
     "team": "Red Bull Racing",
-    "image_url": "images/drivers/yuki-tsunoda.jpg",
+    "image_url": "images/yuki-tsunoda.jpg",
     "nationality": "Japan",
     "dob": "2000-05-11",
     "world_championships": 0,
@@ -26,7 +26,7 @@
   {
     "name": "Charles Leclerc",
     "team": "Ferrari",
-    "image_url": "images/drivers/charles-leclerc.jpg",
+    "image_url": "images/charles-leclerc.jpg",
     "nationality": "Monegasque",
     "dob": "1997-10-16",
     "world_championships": 0,
@@ -38,7 +38,7 @@
   {
     "name": "Lewis Hamilton",
     "team": "Ferrari",
-    "image_url": "images/drivers/lewis-hamilton.jpg",
+    "image_url": "images/lewis-hamilton.jpg",
     "nationality": "British",
     "dob": "1985-01-07",
     "world_championships": 7,
@@ -50,7 +50,7 @@
   {
     "name": "George Russell",
     "team": "Mercedes",
-    "image_url": "images/drivers/george-russell.jpg",
+    "image_url": "images/george-russell.jpg",
     "nationality": "British",
     "dob": "1998-02-15",
     "world_championships": 0,
@@ -62,7 +62,7 @@
   {
     "name": "Andrea Kimi Antonelli",
     "team": "Mercedes",
-    "image_url": "images/drivers/kimi-antonelli.jpg",
+    "image_url": "images/kimi-antonelli.jpg",
     "nationality": "Italian",
     "dob": "2006-08-25",
     "world_championships": 0,
@@ -74,7 +74,7 @@
   {
     "name": "Lando Norris",
     "team": "McLaren",
-    "image_url": "images/drivers/lando-norris.jpg",
+    "image_url": "images/lando-norris.jpg",
     "nationality": "British",
     "dob": "1999-11-13",
     "world_championships": 0,
@@ -86,7 +86,7 @@
   {
     "name": "Oscar Piastri",
     "team": "McLaren",
-    "image_url": "images/drivers/oscar-piastri.jpg",
+    "image_url": "images/oscar-piastri.jpg",
     "nationality": "Australian",
     "dob": "2001-04-06",
     "world_championships": 0,
@@ -98,7 +98,7 @@
   {
     "name": "Fernando Alonso",
     "team": "Aston Martin",
-    "image_url": "images/drivers/fernando-alonso.jpg",
+    "image_url": "images/fernando-alonso.jpg",
     "nationality": "Spanish",
     "dob": "1981-07-29",
     "world_championships": 2,
@@ -110,7 +110,7 @@
   {
     "name": "Lance Stroll",
     "team": "Aston Martin",
-    "image_url": "images/drivers/lance-stroll.jpg",
+    "image_url": "images/lance-stroll.jpg",
     "nationality": "Canadian",
     "dob": "1998-10-29",
     "world_championships": 0,
@@ -122,7 +122,7 @@
   {
     "name": "Pierre Gasly",
     "team": "Alpine",
-    "image_url": "images/drivers/pierre-gasly.jpg",
+    "image_url": "images/pierre-gasly.jpg",
     "nationality": "French",
     "dob": "1996-02-07",
     "world_championships": 0,
@@ -134,7 +134,7 @@
   {
   "name": "Franco Colapinto",
   "team": "Alpine",
-  "image_url": "images/drivers/franco-colapinto.jpg",
+  "image_url": "images/franco-colapinto.jpg",
   "nationality": "Argentine",
   "dob": "2003-05-27",
   "world_championships": 0,
@@ -146,7 +146,7 @@
   {
     "name": "Alexander Albon",
     "team": "Williams",
-    "image_url": "images/drivers/alexander-albon.jpg",
+    "image_url": "images/alexander-albon.jpg",
     "nationality": "Thai",
     "dob": "1996-03-23",
     "world_championships": 0,
@@ -158,7 +158,7 @@
 {
   "name": "Carlos Sainz",
   "team": "Williams",
-  "image_url": "images/drivers/carlos-sainz.jpg",
+  "image_url": "images/carlos-sainz.jpg",
   "nationality": "Spanish",
   "dob": "1994-09-01",
   "world_championships": 0,
@@ -170,7 +170,7 @@
 {
   "name": "Liam Lawson",
   "team": "RB",
-  "image_url": "images/drivers/liam-lawson.jpg",
+  "image_url": "images/liam-lawson.jpg",
   "nationality": "New Zealander",
   "dob": "2002-02-11",
   "world_championships": 0,
@@ -182,7 +182,7 @@
 {
   "name": "Isack Hadjar",
   "team": "RB",
-  "image_url": "images/drivers/isack-hadjar.jpg",
+  "image_url": "images/isack-hadjar.jpg",
   "nationality": "French",
   "dob": "2004-09-28",
   "world_championships": 0,
@@ -194,7 +194,7 @@
   {
     "name": "Nico Hülkenberg",
     "team": "Sauber",
-    "image_url": "images/drivers/nico-hulkenberg.jpg",
+    "image_url": "images/nico-hulkenberg.jpg",
     "nationality": "German",
     "dob": "1987-08-19",
     "world_championships": 0,
@@ -206,7 +206,7 @@
   {
   "name": "Gabriel Bortoleto",
   "team": "Sauber",
-  "image_url": "images/drivers/gabriel-bortoleto.jpg",
+  "image_url": "images/gabriel-bortoleto.jpg",
   "nationality": "Brazilian",
   "dob": "2004-10-06",
   "world_championships": 0,
@@ -218,7 +218,7 @@
 {
   "name": "Esteban Ocon",
   "team": "Haas",
-  "image_url": "images/drivers/esteban-ocon.jpg",
+  "image_url": "images/esteban-ocon.jpg",
   "nationality": "French",
   "dob": "1996-09-17",
   "world_championships": 0,
@@ -230,7 +230,7 @@
   {
     "name": "Oliver Bearman",
     "team": "Haas",
-    "image_url": "images/drivers/oliver-bearman.jpg",
+    "image_url": "images/oliver-bearman.jpg",
     "nationality": "British",
     "dob": "2005-05-08",
     "world_championships": 0,
