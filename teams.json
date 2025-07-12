@@ -16,7 +16,7 @@
       "Max Verstappen"
     ],
     "description": "Dominant force in recent seasons with sharp aero design and fast pit stops.",
-    "car_image": "images/cars/redbull2025.png",
+    "car_image": "images/redbull2025.png",
     "primary_color": "#3671C6"
   },
   {
@@ -36,7 +36,7 @@
       "Charles Leclerc"
     ],
     "description": "Historic Italian team with a massive global fanbase and legacy.",
-    "car_image": "images/cars/ferrari2025.png",
+    "car_image": "images/ferrari2025.png",
     "primary_color": "#E8002D"
   },
   {
@@ -56,7 +56,7 @@
       "Nico Rosberg"
     ],
     "description": "German powerhouse that dominated the hybrid era.",
-    "car_image": "images/cars/mercedes2025.png",
+    "car_image": "images/mercedes2025.png",
     "primary_color": "#00D2BE"
   },
   {
@@ -76,7 +76,7 @@
       "Lando Norris"
     ],
     "description": "Former champions aiming for a comeback with young talents.",
-    "car_image": "images/cars/mclaren2025.png",
+    "car_image": "images/mclaren2025.png",
     "primary_color": "#FF8000"
   },
   {
@@ -96,7 +96,7 @@
       "Lance Stroll"
     ],
     "description": "A rebranded team gaining momentum with experience and funding.",
-    "car_image": "images/cars/astonmartin2025.png",
+    "car_image": "images/astonmartin2025.png",
     "primary_color": "#006F62"
   },
   {
@@ -116,7 +116,7 @@
       "Pierre Gasly"
     ],
     "description": "French team evolving out of Renault with growing aspirations.",
-    "car_image": "images/cars/alpine2025.png",
+    "car_image": "images/alpine2025.png",
     "primary_color": "#0090FF"
   },
   {
@@ -136,7 +136,7 @@
       "Alex Albon"
     ],
     "description": "Historic team working towards a comeback with solid driver lineup.",
-    "car_image": "images/cars/williams2025.png",
+    "car_image": "images/williams2025.png",
     "primary_color": "#005AFF"
   },
   {
@@ -156,7 +156,7 @@
       "Kevin Magnussen"
     ],
     "description": "America\u2019s only team, focusing on survival and progress.",
-    "car_image": "images/cars/haas2025.png",
+    "car_image": "images/haas2025.png",
     "primary_color": "#C4C4C4"
   },
   {
@@ -176,7 +176,7 @@
       "Zhou Guanyu"
     ],
     "description": "Transitioning to Audi partnership and looking to rebuild.",
-    "car_image": "images/cars/kicksauber2025.png",
+    "car_image": "images/kicksauber2025.png",
     "primary_color": "#00FF00"
   },
   {
@@ -196,7 +196,7 @@
       "Daniel Ricciardo"
     ],
     "description": "Development squad with links to Red Bull Racing.",
-    "car_image": "images/cars/racingbulls2025.png",
+    "car_image": "images/racingbulls2025.png",
     "primary_color": "#00205B"
   }
 ]
