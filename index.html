@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>F1 101: Streamlined for Fans</title>
+  <link rel="icon" type="image/png" href="images/favicon.png"> 
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>F1 Teams Grid</title>
+
+   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>F1 101: Streamlined for Fans</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js CDN (if needed elsewhere, not directly used in this section) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Google Fonts - Orbitron for F1-style text, Inter for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0d0d0d;
+      color: #f5f5f5;
+    }
+    h1, h2, h3, .f1-font {
+      font-family: 'Orbitron', sans-serif;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+      /* General Body and Font Styles */
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0d0d0d;
+    color: #f5f5f5;
+  }
+  h1, h2, h3, .f1-font {
+    font-family: 'Orbitron', sans-serif;
+  }
+  /* Header styles (as provided) */
+  header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  header h1 {
+    font-size: 2.5rem;
+    color: #f4d35e;
+  }
+  .teams-grid {
+    display: flex; /* Tailwind's grid overrides this to 'grid' */
+    flex-wrap: wrap;
+    gap: 2rem; /* Tailwind's 'gap-3' in HTML will override this */
+    justify-content: center;
+  }
+   .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: #1c1c1c;
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.2s, background 0.3s;
+      box-shadow: 0 4px 8px rgba(3, 3, 3, 0.2);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background: #c30a0a;
+    }
+
+    .emoji {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    .desc {
+      font-size: 0.95rem;
+      color: #ffffff;
+    }
+
+    
+  /* Team Card Styles for Hover Reveal */
+  .team-card {
+    background: #1c1c1c;
+    border-radius: 12px;
+    /* width: 340px; - Removed, as Tailwind grid columns will manage width */
+    overflow: hidden; /* Crucial to hide the team-info when max-height is 0 */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    /* Updated transition to include min-height and box-shadow */
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, min-height 0.4s ease-in-out;
+    position: relative;
+    display: flex; /* Added for flex-direction: column */
+    flex-direction: column; /* Added to stack header, car, info vertically */
+    /* Set an initial height for the card when info is hidden */
+    min-height: 200px; /* Adjust this to fit your logo + car image nicely */
+    cursor: pointer; /* Indicate it's interactive */
+  }
+
+  .team-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6); /* Slightly larger shadow on hover */
+    /* Expand card height to reveal info. Adjust as needed for content. */
+    min-height: 400px;
+  }
+
+  .team-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: #1a1a2e; /* Added background for header contrast */
+    z-index: 2; /* Ensures header is on top */
+    position: relative; /* For z-index to work */
+  }
+  .team-logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 0.8rem;
+  }
+  .team-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  /* Car Image: Always visible, can have a subtle lift */
+  .car-image {
+    width: 100%;
+    display: block;
+    position: relative; 
+    z-index: 1; 
+    transition: transform 0.3s ease-out, filter 0.3s ease-out;
+    padding: 0 10px;
+    box-sizing: border-box; 
+    object-fit: contain; 
+    height: 100px; 
+    margin-bottom: 0.5rem; 
+  }
+
+  .team-card:hover .car-image {
+    transform: translateY(-10px) scale(1.05);
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.4)); 
+  }
+
+  /* TEAM INFO: INITIALLY HIDDEN, REVEALED ON HOVER */
+  .team-info {
+    background-color: #000000; 
+    z-index: 0;
+    position: relative;
+    flex-grow: 1; 
+
+    /* Initial state: Hidden */
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden; 
+
+    /* Smooth transition for revealing */
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.4s ease-in-out;
+  }
+
+  .team-card:hover .team-info {
+    /* Revealed state: Full height, visible */
+    max-height: 500px; 
+    opacity: 1;
+    padding: 1rem;
+  }
+
+  .team-info p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+  }
+  .highlight {
+    font-weight: bold;
+    color: #ff0000; 
+  }
+  /* === DRIVERS SECTION CSS === */
+/* === DRIVER CARD F1 STYLE === */
+.driver-card {
+  background-color: #111;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 360px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.driver-card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+.driver-img-container {
+  height: 240px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.driver-img {
+  height: 340px;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* Basic visible info */
+.driver-basic {
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+}
+
+.driver-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.driver-team {
+  font-size: 0.75rem;
+  color: #c2c2c2;
+}
+
+/* Drop-down info hidden by default */
+.driver-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  z-index: 2;
+}
+
+.driver-card:hover .driver-info {
+  max-height: 220px;
+  opacity: 1;
+}
+
+.driver-info p {
+  margin: 0.3rem 0;
+  color: #e0e0e0;
+}
+
+.label {
+  color: #e50914;
+  font-weight: 600;
+}
+
+
+/* --- Circuit Card Styles --- */
+.circuit-card {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    height: 180px; /* Fixed height for cards in the grid */
+}
+
+.circuit-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.circuit-card img {
+    max-width: 90%;
+    max-height: 120px; /* Adjust as needed */
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+    .circuit-card:hover {
+      transform: translateY(-5px);
+      background: #e02323;
+    }
+
+.circuit-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    color: #f5f5f5;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%; /* Ensure ellipsis works */
+}
+
+/* --- Overlay Styles --- */
+#circuit-detail-overlay.hidden {
+    display: none; /* Keep it completely out of flow when hidden */
+}
+
+
+
+/* Hotspot styles */
+/* Styles for the interactive red circles on the car image */
+.hotspot {
+    position: absolute; /* Positioned relative to its parent (.relative.mx-auto.max-w-5xl) */
+    width: 20px;
+    height: 20px;
+    background-color: rgba(229, 9, 20, 0.7); /* F1 red with transparency */
+    border-radius: 50%; /* Makes it a circle */
+    cursor: pointer; /* Indicates it's interactive */
+    border: 2px solid rgba(255, 255, 255, 0.8); /* White border */
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out; /* Smooth hover effects */
+    transform: translate(-50%, -50%); /* Centers the hotspot precisely on its top/left coordinate */
+    z-index: 20; /* Ensures hotspots are above the car image */
+}
+
+.hotspot:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* White on hover */
+    transform: translate(-50%, -50%) scale(1.2); /* Enlarges on hover */
+}
+
+/* --- Tooltip Specific Styles --- */
+/* Styles for the pop-up box that shows details on hover */
+#hotspot-tooltip {
+    position: absolute; /* Positioned relative to its parent (.relative.mx-auto.max-w-5xl) */
+    background-color: rgba(0, 0, 0, 0.9); /* Dark background with slight transparency */
+    color: white; /* White text color */
+    padding: 10px 15px;
+    border-radius: 8px;
+    max-width: 250px; /* Limits the width of the tooltip */
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Soft shadow */
+    z-index: 1000; /* Ensures the tooltip is on top of everything else */
+
+    /* Crucial for visibility: Starts hidden and transitions smoothly */
+    opacity: 0; /* Initially fully transparent */
+    visibility: hidden; /* Initially hidden from rendering and accessibility tree */
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out; /* Smooth fade-in/out */
+    pointer-events: none; /* Allows mouse events to pass through to elements behind it, so you can hover on hotspots */
+}
+
+/* Styles for the title within the tooltip */
+#hotspot-tooltip strong {
+    color: #e50914; /* F1 red for the title */
+    font-family: 'Orbitron', sans-serif; /* F1-style font for the title */
+    display: block; /* Makes the title take its own line */
+    margin-bottom: 5px; /* Space below the title */
+    font-size: 1rem;
+}
+
+/* Basic styling for the race events table */
+.race-events-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+}
+
+.race-events-table th,
+.race-events-table td {
+    border: 1px solid #3a3a3a;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.race-events-table th {
+    background-color: #333;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.race-events-table tr:nth-child(even) {
+    background-color: #252525;
+}
+
+.race-events-table tr:hover {
+    background-color: #353535;
+}
+
+/* Specific styling for the 'Time' column to make it bold */
+.race-events-table td strong {
+    color: #00bcd4; /* A light blue color for emphasis */
+}
+
+
+  </style>
+</head>
+
+
+<body class="text-white">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-black bg-opacity-80 shadow-md">
+    <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="flex items-center space-x-3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/F1.svg" alt="F1 Logo" class="h-6 md:h-8">
+        <span class="text-[#e50914] text-2xl f1-font">101</span>
+      </a>
+      <div class="space-x-6 hidden md:flex">
+        <a href="#Key Terms" class="hover:text-[#e50914] transition">Basics</a>
+        <li><a href="#teams" class="hover:text-[#e50914] transition">Teams</a></li>
+        <li><a href="#drivers" class="nav-button">Drivers</a></li>
+        <li><a href="#circuits" class="nav-button">Circuits</a></li>
+        <li><a href="#car" class="hover:text-[#e50914] transition">Car</a></li>
+        <li><a href="#data" class="hover:text-[#e50914] transition">Race Data</a></li>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+ <section class="relative h-screen flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('../images/f1carlayout2.png');">
+    <div class="bg-black bg-opacity-40 w-full h-full absolute inset-0"></div>
+    <div class="z-10 max-w-2xl px-5">
+      <h1 class="text-10xl md:text-6xl font-bold text-white leading-tight mb-6">Step Into the World of Formula 1</h1>
+      <p class="text-lg text-gray-100 mb-6">From pit stops to podiums — everything you need to get started</p>
+      <a href="#Key Terms" class="inline-block px-7 py-3 bg-[#e50914] text-white font-semibold rounded hover:bg-[#b20710] transition">Start Learning</a>
+    </div>
+</section>
+
+  <!-- Basics Section -->
+  <section id="Key Terms" class="py-16 bg black">
+   <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-10">Key Terms</h2>
+   <section class="grid">
+    <div class="card">
+      <div class="emoji">🏎️</div>
+      <div class="title">F1 = Formula 1</div>
+      <div class="desc">Top-tier international motorsport.</div>
+    </div>
+    <div class="card">
+      <div class="emoji">🧑</div>
+      <div class="title">20 Drivers, 10 Teams</div>
+      <div class="desc">2 drivers per team.</div>
+    </div>
+    <div class="card">
+      <div class="emoji">🏆</div>
+      <div class="title">Points System</div>
+      <div class="desc">Top 10 finishers earn points, 1st pos = 25points.</div>
+    </div>
+    <div class="card">
+      <div class="emoji">⚡</div>
+      <div class="title">DRS (Drag Reduction System)</div>
+      <div class="desc">Boosts speed for overtaking.</div>
+    </div>
+    <div class="card">
+      <div class="emoji">🛞</div>
+      <div class="title">Tyres</div>
+      <div class="desc">Soft, Medium, Hard & Wet types.</div>
+    </div>
+    <div class="card">
+      <div class="emoji">🏁</div>
+      <div class="title">Flags</div>
+      <div class="desc">Yellow = caution, Red = stop, Checkered = end.</div>
+    </div>
+    <div class="card">
+      <div class="emoji">🔧</div>
+      <div class="title">Pit Stop</div>
+      <div class="desc">Change tyres or fix issues mid-race.</div>
+    </div>
+    <div class="card">
+      <div class="emoji">🏎️💨</div>
+      <div class="title">Overtaking</div>
+      <div class="desc">Drivers fight for position.</div>
+    </div>
+    <div class="card">
+      <div class="emoji">🚗🚦</div>
+      <div class="title">Safety Car</div>
+      <div class="desc">Slows race after crashes or rain.</div>
+    </div>
+          <div class="card">
+      <div class="emoji">🎯</div>
+      <div class="title">Pole Position</div>
+      <div class="desc">Fastest qualifier starts first on grid.</div>
+    </div>
+        <div class="card">
+      <div class="emoji">📅</div>
+      <div class="title">Season</div>
+      <div class="desc">20–24 races across the year.</div>
+    </div>
+        <div class="card">
+      <div class="emoji">📣</div>
+      <div class="title">Team Orders</div>
+      <div class="desc">Teams can instruct drivers during races.</div>
+    </div>
+  </section>
+  <section id="basics" class="py-16 bg-black">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-10">🏁 How Race Weekends Work</h2>
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div class="glass p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-[#e50914] mb-2">Practice</h3>
+          <p class="text-sm text-gray-300">Friday and Saturday sessions where teams fine-tune setups and strategies.</p>
+        </div>
+        <div class="glass p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-[#e50914] mb-2">Qualifying</h3>
+          <p class="text-sm text-gray-300">Three knockout rounds that determine the race starting grid.</p>
+        </div>
+        <div class="glass p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-[#e50914] mb-2">Race</h3>
+          <p class="text-sm text-gray-300">The main event. Drivers fight for points and podiums on Sunday.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teams Showcase -->
+  <section id="teams" class="py-16 bg-[#1c1c1c]">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-10">🏎 Meet the Teams</h2>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      </div>
+    </div>
+  </section>
+
+  <section id="teams" class="py-16 bg-[#1c1c1c]">
+    <div class="teams-grid" id="team-container"></div>
+  </section>
+  <script>
+    fetch('./teams.json')
+      .then(response => {
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        return response.json();
+      })
+      .then(data => {
+        const container = document.getElementById('team-container');
+        data.forEach(team => {
+          const card = document.createElement('div');
+          card.className = 'team-card';
+          card.style.borderTop = `5px solid ${team.primary_color}`;
+          card.innerHTML = `
+            <div class="team-header">
+              <img class="team-logo" src="${team.logo_url}" alt="${team.team_name} Logo">
+              <div class="team-name">${team.team_name}</div>
+            </div>
+            <img class="car-image" src="${team.car_image}" alt="${team.car_name}">
+            <div class="team-info">
+              <p><span class="highlight">Founded:</span> ${team.established}</p>
+              <p><span class="highlight">Base:</span> ${team.country}</p>
+              <p><span class="highlight">Team Principal:</span> ${team.team_principal}</p>
+              <p><span class="highlight">Power Unit:</span> ${team.car_name}</p>
+              <p><span class="highlight">Championships:</span> ${team.championships.constructors} Constructors, ${team.championships.drivers} Drivers</p>
+              <p><span class="highlight">Known For:</span> ${team.strategy_style}</p>
+              <p><span class="highlight">Iconic Drivers:</span> ${team.notable_drivers.join(", ")}</p>
+            </div>`;
+          container.appendChild(card);
+        });
+      })
+      .catch(err => {
+        console.error('Failed to load teams:', err);
+        document.getElementById('team-container').innerHTML = '<p style="color: red;">Failed to load team data. Make sure teams.json is in the same directory.</p>';
+      });
+  </script>
+
+  <!-- Meet the Racers -->
+<!-- === DRIVERS SECTION WITH POP-OUT INFO AND F1 STYLE === -->
+<section id="drivers" class="py-16 bg-black">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-10 text-center">DRIVERS</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6" id="drivers-grid">
+      <!-- Driver cards will be injected here -->
+    </div>
+  </div>
+</section>
+
+<script>
+  fetch('./drivers.json')
+    .then(res => res.json())
+    .then(drivers => {
+      const container = document.getElementById('drivers-grid');
+      drivers.forEach(driver => {
+        const card = document.createElement('div');
+        card.className = 'driver-card group';
+        card.style.borderTop = `5px solid ${getTeamColor(driver.team)}`;
+        card.innerHTML = `
+          <!-- ${driver.name} -->
+          <div class="driver-img-container">
+            <img src="${driver.image_url}" alt="${driver.name}" class="driver-img">
+          </div>
+          <div class="driver-basic">
+            <div class="driver-name">${driver.name}</div>
+            <div class="driver-team">${driver.team}</div>
+          </div>
+          <div class="driver-info">
+            <p><span class="label">Nationality:</span> ${driver.nationality}</p>
+            <p><span class="label">Born:</span> ${driver.dob}</p>
+            <p><span class="label">Championships:</span> ${driver.world_championships}</p>
+            <p><span class="label">Races:</span> ${driver.races}</p>
+            <p><span class="label">Wins:</span> ${driver.wins}</p>
+            <p><span class="label">Podiums:</span> ${driver.podiums}</p>
+            <p><span class="label">Known For:</span> ${driver.known_for}</p>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    });
+
+  function getTeamColor(team) {
+    const colors = {
+      "Red Bull Racing": "#1E41FF",
+      "Ferrari": "#DC0000",
+      "Mercedes": "#00D2BE",
+      "McLaren": "#FF8000",
+      "Aston Martin": "#229971",
+      "Alpine": "#0090FF",
+      "RB (Visa Cash App)": "#2B4562",
+      "Sauber": "#52E252",
+      "Haas": "#B6BABD",
+      "Williams": "#005AFF"
+    };
+    return colors[team] || "#ffffff";
+  }
+</script>
+
+<!-- Race track or circuits -->
+<section id="circuits" class="py-16 bg-[#0d0d0d]">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-10 text-center">🏁 2025 F1 Circuits</h2>
+          <p class="text-gray-400 text-center text-sm mb-10">Click on a card for details</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="circuits-grid">
+            </div>
+    </div>
+</section>
+
+<div id="circuit-detail-overlay" class="fixed inset-0 bg-black bg-opacity-95 flex items-center justify-center p-4 z-50 hidden opacity-0 transition-opacity duration-300">
+    <div class="relative bg-[#1c1c1c] rounded-lg shadow-2xl flex flex-col lg:flex-row w-full max-w-6xl h-4/5 overflow-hidden transform scale-95 transition-transform duration-300">
+        <button id="close-circuit-detail" class="absolute top-4 right-4 text-white text-3xl hover:text-[#e50914] z-10">&times;</button>
+
+        <div class="lg:w-1/2 w-full h-1/2 lg:h-full flex items-center justify-center bg-gray-900 p-4">
+            <img id="overlay-circuit-map" src="" alt="Circuit Map" class="max-w-full max-h-full object-contain rounded">
+        </div>
+
+        <div class="lg:w-1/2 w-full h-1/2 lg:h-full p-8 flex flex-col justify-center">
+            <h3 id="overlay-circuit-name" class="text-3xl font-bold text-[#e50914] mb-4 f1-font"></h3>
+            <ul id="overlay-circuit-details" class="text-lg text-gray-300 space-y-2">
+                </ul>
+        </div>
+    </div>
+</div>
+<script>
+    // Fetch and display Circuits
+    fetch('./circuits.json')
+        .then(res => res.json())
+        .then(circuits => {
+            const container = document.getElementById('circuits-grid');
+            circuits.forEach(circuit => {
+                const card = document.createElement('div');
+                card.className = 'circuit-card glass'; // Added 'glass' class
+                card.innerHTML = `
+                    <img src="${circuit.map_image_url}" alt="${circuit.name} Map">
+                    <h3>${circuit.name}</h3>
+                `;
+                card.addEventListener('click', () => showCircuitDetail(circuit));
+                container.appendChild(card);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching circuits:', error);
+            document.getElementById('circuits-grid').innerHTML = '<p class="text-red-500 text-center">Failed to load circuit data.</p>';
+        });
+
+    // Circuit Detail Overlay Logic
+    const overlay = document.getElementById('circuit-detail-overlay');
+    const closeBtn = document.getElementById('close-circuit-detail');
+    const overlayCircuitMap = document.getElementById('overlay-circuit-map');
+    const overlayCircuitName = document.getElementById('overlay-circuit-name');
+    const overlayCircuitDetails = document.getElementById('overlay-circuit-details');
+    const overlayContentBox = overlay.querySelector('div'); // The inner flex container
+
+    function showCircuitDetail(circuit) {
+        overlayCircuitMap.src = circuit.map_image_url;
+        overlayCircuitName.textContent = circuit.name;
+        overlayCircuitDetails.innerHTML = `
+            <li><span class="font-semibold text-[#e50914]">Location:</span> ${circuit.location}, ${circuit.country}</li>
+            <li><span class="font-semibold text-[#e50914]">Laps:</span> ${circuit.laps}</li>
+            <li><span class="font-semibold text-[#e50914]">Length:</span> ${circuit.length_km} km / ${circuit.length_miles} miles</li>
+            <li><span class="font-semibold text-[#e50914]">Race Distance:</span> ${circuit.race_distance_km} km / ${circuit.race_distance_miles} miles</li>
+            <li><span class="font-semibold text-[#e50914]">Turns:</span> ${circuit.turns}</li>
+            <li><span class="font-semibold text-[#e50914]">First Grand Prix:</span> ${circuit.first_grand_prix}</li>
+            <li><span class="font-semibold text-[#e50914]">Lap Record:</span> ${circuit.lap_record} (${circuit.lap_record_holder}, ${circuit.lap_record_year})</li>
+            <li><span class="font-semibold text-[#e50914]">Characteristics:</span> ${circuit.characteristics.join(', ')}</li>
+        `;
+        overlay.classList.remove('hidden');
+        // Trigger reflow to ensure transition starts from opacity 0 and scale 95
+        void overlay.offsetWidth; 
+        overlay.style.opacity = '1';
+        overlayContentBox.style.transform = 'scale(1)';
+    }
+
+    function hideCircuitDetail() {
+        overlay.style.opacity = '0';
+        overlayContentBox.style.transform = 'scale(0.95)';
+        overlay.addEventListener('transitionend', function handler() {
+            overlay.classList.add('hidden');
+            overlay.removeEventListener('transitionend', handler);
+        });
+    }
+
+    closeBtn.addEventListener('click', hideCircuitDetail);
+    overlay.addEventListener('click', (e) => {
+        // Close if click is outside the content box
+        if (e.target === overlay) {
+            hideCircuitDetail();
+        }
+    });
+
+    // Optional: Close with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !overlay.classList.contains('hidden')) {
+            hideCircuitDetail();
+        }
+    });
+
+</script>
+
+
+
+
+
+<!-- Hotspots -->
+<section id="car" class="py-16 bg-black">
+    <div class="max-w-6xl mx-auto px-4 text-center relative">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Explore the F1 Car</h2>
+
+        <div class="relative mx-auto max-w-5xl">
+            <!-- The F1 Car Image -->
+            <img src="images/f1car.png" alt="F1 Car" class="w-full rounded-lg shadow-md">
+
+            <!-- Hotspots: Each div represents an interactive area -->
+            <!-- data-title: The main title for the tooltip -->
+            <!-- data-description: The detailed description for the tooltip -->
+            <!-- style: Position the hotspot using top and left percentages relative to the image container -->
+            <div class="hotspot" style="top: 60%; left: 12%;" data-title="Front Wing" data-description="Controls front-end downforce and initial airflow."></div>
+            <div class="hotspot" style="top: 55%; left: 37%;" data-title="Front Left Tire" data-description="Provides grip, balance, and braking."></div>
+            <div class="hotspot" style="top: 34%; left: 50%;" data-title="Halo" data-description="Titanium safety bar protecting the driver."></div>
+            <div class="hotspot" style="top: 46%; left: 50%;" data-title="Steering Wheel" data-description="Controls DRS, ERS, radio, settings."></div>
+            <div class="hotspot" style="top: 29%; left: 58%;" data-title="Air Intake" data-description="Feeds air into turbo engine and cooling."></div>
+            <div class="hotspot" style="top: 32%; left: 83%;" data-title="Rear Wing" data-description="Adds rear downforce; allows DRS."></div>
+            <div class="hotspot" style="top: 42%; left: 68%;" data-title="Power Unit" data-description="Hybrid V6 + electric systems."></div>
+            <div class="hotspot" style="top: 50%; left: 89%;" data-title="Rear Left Tire" data-description="Pushes power to track; traction zone."></div>
+
+            <!-- Tooltip: This element will display the hotspot details on hover -->
+            <!-- It starts hidden (opacity: 0, visibility: hidden in CSS) -->
+            <!-- pointer-events: none ensures it doesn't block mouse events on elements beneath it -->
+            <div id="hotspot-tooltip" class="absolute z-50 bg-white text-black text-sm rounded px-3 py-2 shadow-md" style="pointer-events: none;"></div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Get references to the hotspot elements, the tooltip, and the car image's parent container
+const hotspots = document.querySelectorAll('.hotspot');
+const tooltip = document.getElementById('hotspot-tooltip');
+const carSection = document.querySelector('#car .relative.mx-auto'); // This is the parent div of the image and hotspots
+
+// Iterate over each hotspot to attach event listeners
+hotspots.forEach(hotspot => {
+    let mouseMoveHandler; // Variable to store the mousemove function, so we can remove it later
+
+    // Event listener for when the mouse enters a hotspot
+    hotspot.addEventListener('mouseover', function(e) {
+        // Get the title and description from the data attributes of the hovered hotspot
+        const title = this.dataset.title;
+        const description = this.dataset.description;
+
+        // Populate the tooltip with the retrieved content
+        tooltip.innerHTML = `<strong>${title}</strong><p>${description}</p>`;
+
+        // Make the tooltip visible by setting its CSS properties
+        tooltip.style.visibility = 'visible';
+        tooltip.style.opacity = '1';
+
+        // Define the mousemove handler function. This function updates the tooltip's position
+        // to follow the mouse cursor relative to the car image container.
+        mouseMoveHandler = function(e) {
+            // Get the bounding rectangle of the car image's parent container
+            const carRect = carSection.getBoundingClientRect();
+            
+            // Calculate the tooltip's position relative to the car container
+            // Add a small offset (15px) so the tooltip doesn't directly cover the cursor
+            let x = e.clientX - carRect.left - 100;
+            let y = e.clientY - carRect.top - 15;
+
+            // Boundary checks: Ensure the tooltip stays within the car image container
+            // Adjust X position if it goes too far right
+            if (x + tooltip.offsetWidth > carRect.width) {
+                x = carRect.width - tooltip.offsetWidth - 5; // Push it back into view
+            }
+            // Adjust Y position if it goes too far down
+            if (y + tooltip.offsetHeight > carRect.height) {
+                y = carRect.height - tooltip.offsetHeight - 5; // Push it back into view
+            }
+            // Ensure X doesn't go too far left (minimum 5px from left edge)
+            if (x < 0) x = 5;
+            // Ensure Y doesn't go too far up (minimum 5px from top edge)
+            if (y < 0) y = 5;
+
+            // Apply the calculated position to the tooltip's style
+            tooltip.style.left = `${x}px`;
+            tooltip.style.top = `${y}px`;
+        };
+
+        // Add the mousemove event listener to the car section.
+        // This makes the tooltip follow the mouse as long as it's within the car image area.
+        carSection.addEventListener('mousemove', mouseMoveHandler);
+    });
+
+    // Event listener for when the mouse leaves a hotspot
+    hotspot.addEventListener('mouseout', () => {
+        // Hide the tooltip by setting its CSS properties
+        tooltip.style.opacity = '0'; // Start fade-out
+        // After the fade-out transition, set visibility to hidden
+        tooltip.addEventListener('transitionend', function handleTransitionEnd() {
+            if (tooltip.style.opacity === '0') { // Only hide visibility if it has fully faded out
+                tooltip.style.visibility = 'hidden';
+            }
+            tooltip.removeEventListener('transitionend', handleTransitionEnd); // Clean up listener
+        });
+        
+        // Remove the mousemove handler to stop updating position when not hovering
+        if (mouseMoveHandler) {
+            carSection.removeEventListener('mousemove', mouseMoveHandler);
+        }
+    });
+});
+</script>
+
+  <!-- Race Data Section -->
+    <section id="data" class="py-16 bg-[#1c1c1c]">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 f1-font">📊 Example Race Events</h2>
+            <p class="text-gray-400 text-center mb-8">
+                Here's a sample of race event data from a past Grand Prix.
+            </p>
+            <div id="race-output" class="text-gray-300 mt-4 overflow-x-auto">
+            </div>
+        </div>
+    </section>
+
+  <footer class="py-6 text-center bg-black border-t border-gray-800">
+    <p class="text-sm text-gray-500">Built for Maketronics Challenge. By Muzaffar</p>
+  </footer>
+
+<script>
+const raceOutputDiv = document.getElementById('race-output');
+async function loadRaceEvents() {
+    raceOutputDiv.innerHTML = '<p class="text-gray-400 text-center p-4">Loading example race events...</p>';
+    try {
+        const res = await fetch('./race_events.json');
+        if (!res.ok) {
+            throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        const data = await res.json();
+        if (data.events && data.events.length > 0) {
+            data.events.sort((a, b) => parseFloat(a.time) - parseFloat(b.time));
+
+            let tableHTML = `
+                        <table class="race-events-table">
+                            <thead>
+                                <tr>
+                                    <th>Time (s)</th>
+                                    <th>Type</th>
+                                    <th>Message</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
+            data.events.forEach(ev => {
+                tableHTML += `
+                            <tr>
+                                <td><strong>${ev.time || 'N/A'}</strong></td>
+                                <td>${ev.type || 'N/A'}</td>
+                                <td>${ev.message || 'No specific message'}</td>
+                            </tr>
+                        `;
+            });
+            tableHTML += `</tbody></table>`;
+            raceOutputDiv.innerHTML = tableHTML;
+        } else {
+            raceOutputDiv.innerHTML = `<p class="text-gray-400 text-center p-4">No example events found in the JSON file.</p>`;
+        }
+    } catch (err) {
+        raceOutputDiv.innerHTML = `<p class="text-red-500 text-center p-4">Error loading example data: ${err.message}.</p>`;
+        console.error('Fetch error:', err);
+    }
+}
+loadRaceEvents();
+</script>
+
+</body>
+</html>
