@@ -1,7 +1,7 @@
 [
   {
     "team_name": "Red Bull Racing",
-    "logo_url": "images/teams/redbull.png",
+    "logo_url": "images/redbull.png",
     "established": 2005,
     "country": "UK",
     "team_principal": "Christian Horner",
@@ -21,7 +21,7 @@
   },
   {
     "team_name": "Ferrari",
-    "logo_url": "images/teams/ferrari.png",
+    "logo_url": "images/ferrari.png",
     "established": 1950,
     "country": "Italy",
     "team_principal": "Fr\u00e9d\u00e9ric Vasseur",
@@ -41,7 +41,7 @@
   },
   {
     "team_name": "Mercedes",
-    "logo_url": "images/teams/mercedes.png",
+    "logo_url": "images/mercedes.png",
     "established": 2010,
     "country": "Germany",
     "team_principal": "Toto Wolff",
@@ -61,7 +61,7 @@
   },
   {
     "team_name": "McLaren",
-    "logo_url": "images/teams/mclaren.png",
+    "logo_url": "images/mclaren.png",
     "established": 1966,
     "country": "UK",
     "team_principal": "Andrea Stella",
@@ -81,7 +81,7 @@
   },
   {
     "team_name": "Aston Martin",
-    "logo_url": "images/teams/astonmartin.png",
+    "logo_url": "images/astonmartin.png",
     "established": 2021,
     "country": "UK",
     "team_principal": "Mike Krack",
@@ -101,7 +101,7 @@
   },
   {
     "team_name": "Alpine",
-    "logo_url": "images/teams/alpine.png",
+    "logo_url": "images/alpine.png",
     "established": 2021,
     "country": "France",
     "team_principal": "Bruno Famin",
@@ -121,7 +121,7 @@
   },
   {
     "team_name": "Williams",
-    "logo_url": "images/teams/williams.png",
+    "logo_url": "images/williams.png",
     "established": 1977,
     "country": "UK",
     "team_principal": "James Vowles",
@@ -141,7 +141,7 @@
   },
   {
     "team_name": "Haas",
-    "logo_url": "images/teams/haas.png",
+    "logo_url": "images/haas.png",
     "established": 2016,
     "country": "USA",
     "team_principal": "Ayao Komatsu",
@@ -161,7 +161,7 @@
   },
   {
     "team_name": "Kick Sauber",
-    "logo_url": "images/teams/kicksauber.png",
+    "logo_url": "images/kicksauber.png",
     "established": 1993,
     "country": "Switzerland",
     "team_principal": "Alessandro Alunni Bravi",
@@ -181,7 +181,7 @@
   },
   {
     "team_name": "Racing Bulls",
-    "logo_url": "images/teams/racingbulls.png",
+    "logo_url": "images/racingbulls.png",
     "established": 2006,
     "country": "Italy",
     "team_principal": "Laurent Mekies",
