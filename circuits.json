@@ -15,7 +15,7 @@
     "lap_record_holder": "Pedro de la Rosa",
     "lap_record_year": 2005,
     "characteristics": ["High-speed", "Braking zones", "Sand"],
-    "map_image_url": "images/circuits/bahrain.png"
+    "map_image_url": "images/bahrain.png"
   },
   {
     "id": "jeddah",
@@ -33,7 +33,7 @@
     "lap_record_holder": "Lewis Hamilton",
     "lap_record_year": 2021,
     "characteristics": ["Street circuit", "Fast", "Flowing"],
-    "map_image_url": "images/circuits/jeddah.png"
+    "map_image_url": "images/jeddah.png"
   },
   {
     "id": "melbourne",
@@ -51,7 +51,7 @@
     "lap_record_holder": "Sergio Pérez",
     "lap_record_year": 2023,
     "characteristics": ["Semi-permanent", "Fast", "Technical"],
-    "map_image_url": "images/circuits/melbourne.png"
+    "map_image_url": "images/melbourne.png"
   },
   {
     "id": "baku",
@@ -69,7 +69,7 @@
     "lap_record_holder": "Charles Leclerc",
     "lap_record_year": 2019,
     "characteristics": ["Street circuit", "Long straight", "Tight section"],
-    "map_image_url": "images/circuits/baku.png"
+    "map_image_url": "images/baku.png"
   },
   {
     "id": "miami",
@@ -87,7 +87,7 @@
     "lap_record_holder": "Max Verstappen",
     "lap_record_year": 2022,
     "characteristics": ["Purpose-built", "High-speed", "Mix of corners"],
-    "map_image_url": "images/circuits/miami.png"
+    "map_image_url": "images/miami.png"
   },
   {
     "id": "imola",
@@ -105,7 +105,7 @@
     "lap_record_holder": "Lewis Hamilton",
     "lap_record_year": 2020,
     "characteristics": ["Historic", "Technical", "Elevation changes"],
-    "map_image_url": "images/circuits/imola.png"
+    "map_image_url": "images/imola.png"
   },
   {
     "id": "monaco",
@@ -123,7 +123,7 @@
     "lap_record_holder": "Lewis Hamilton",
     "lap_record_year": 2021,
     "characteristics": ["Street circuit", "Tight", "Slow"],
-    "map_image_url": "images/circuits/monaco.png"
+    "map_image_url": "images/monaco.png"
   },
   {
     "id": "barcelona",
@@ -141,7 +141,7 @@
     "lap_record_holder": "Max Verstappen",
     "lap_record_year": 2023,
     "characteristics": ["All-rounder", "High-speed corners", "Testing"],
-    "map_image_url": "images/circuits/barcelona.png"
+    "map_image_url": "images/barcelona.png"
   },
   {
     "id": "montreal",
@@ -159,7 +159,7 @@
     "lap_record_holder": "Valtteri Bottas",
     "lap_record_year": 2019,
     "characteristics": ["Semi-permanent", "High-speed", "Chicane focused"],
-    "map_image_url": "images/circuits/montreal.png"
+    "map_image_url": "images/montreal.png"
   },
   {
     "id": "spielberg",
@@ -177,7 +177,7 @@
     "lap_record_holder": "Carlos Sainz",
     "lap_record_year": 2020,
     "characteristics": ["Short lap", "High elevation", "Fast"],
-    "map_image_url": "images/circuits/spielberg.png"
+    "map_image_url": "images/spielberg.png"
   },
   {
     "id": "silverstone",
@@ -195,7 +195,7 @@
     "lap_record_holder": "Max Verstappen",
     "lap_record_year": 2020,
     "characteristics": ["Fast", "High-speed corners", "Historic"],
-    "map_image_url": "images/circuits/silverstone.png"
+    "map_image_url": "images/silverstone.png"
   },
   {
     "id": "hungaroring",
@@ -213,7 +213,7 @@
     "lap_record_holder": "Lewis Hamilton",
     "lap_record_year": 2020,
     "characteristics": ["Tight", "Twisty", "Dusty"],
-    "map_image_url": "images/circuits/hungaroring.png"
+    "map_image_url": "images/hungaroring.png"
   },
   {
     "id": "spa",
@@ -231,7 +231,7 @@
     "lap_record_holder": "Valtteri Bottas",
     "lap_record_year": 2018,
     "characteristics": ["Long", "Elevation changes", "Fast"],
-    "map_image_url": "images/circuits/spa.png"
+    "map_image_url": "images/spa.png"
   },
   {
     "id": "zandvoort",
@@ -249,7 +249,7 @@
     "lap_record_holder": "Lewis Hamilton",
     "lap_record_year": 2021,
     "characteristics": ["Old school", "Banking", "Flowing"],
-    "map_image_url": "images/circuits/zandvoort.png"
+    "map_image_url": "images/zandvoort.png"
   },
   {
     "id": "monza",
@@ -267,7 +267,7 @@
     "lap_record_holder": "Rubens Barrichello",
     "lap_record_year": 2004,
     "characteristics": ["High-speed", "Historic", "Power"],
-    "map_image_url": "images/circuits/monza.png"
+    "map_image_url": "images/monza.png"
   },
   {
     "id": "baku_old",
@@ -285,7 +285,7 @@
     "lap_record_holder": "Charles Leclerc",
     "lap_record_year": 2019,
     "characteristics": ["Street circuit", "Long straight", "Tight section"],
-    "map_image_url": "images/circuits/baku.png"
+    "map_image_url": "images/baku.png"
   },
   {
     "id": "singapore",
@@ -303,7 +303,7 @@
     "lap_record_holder": "Lewis Hamilton",
     "lap_record_year": 2018,
     "characteristics": ["Street circuit", "Night race", "Demanding"],
-    "map_image_url": "images/circuits/singapore.png"
+    "map_image_url": "images/singapore.png"
   },
   {
     "id": "suzuka",
@@ -321,7 +321,7 @@
     "lap_record_holder": "Lewis Hamilton",
     "lap_record_year": 2019,
     "characteristics": ["Figure-eight", "High-speed", "Technical"],
-    "map_image_url": "images/circuits/suzuka.png"
+    "map_image_url": "images/suzuka.png"
   },
   {
     "id": "qatar",
@@ -339,7 +339,7 @@
     "lap_record_holder": "Max Verstappen",
     "lap_record_year": 2023,
     "characteristics": ["Fast", "Flowing", "Desert location"],
-    "map_image_url": "images/circuits/qatar.png"
+    "map_image_url": "images/qatar.png"
   },
   {
     "id": "americas",
@@ -357,7 +357,7 @@
     "lap_record_holder": "Charles Leclerc",
     "lap_record_year": 2019,
     "characteristics": ["Elevation changes", "Technical", "Mix of corners"],
-    "map_image_url": "images/circuits/cota.png"
+    "map_image_url": "images/cota.png"
   },
   {
     "id": "mexico",
@@ -375,7 +375,7 @@
     "lap_record_holder": "Valtteri Bottas",
     "lap_record_year": 2021,
     "characteristics": ["High altitude", "Long straight", "Stadium section"],
-    "map_image_url": "images/circuits/mexico.png"
+    "map_image_url": "images/mexico.png"
   },
   {
     "id": "brazil",
@@ -393,7 +393,7 @@
     "lap_record_holder": "Valtteri Bottas",
     "lap_record_year": 2018,
     "characteristics": ["Undulating", "Anticlockwise", "Short lap"],
-    "map_image_url": "images/circuits/brazil.png"
+    "map_image_url": "images/brazil.png"
   },
   {
     "id": "lasvegas",
@@ -411,7 +411,7 @@
     "lap_record_holder": "Oscar Piastri",
     "lap_record_year": 2023,
     "characteristics": ["Street circuit", "Night race", "Long straight"],
-    "map_image_url": "images/circuits/lasvegas.png"
+    "map_image_url": "images/lasvegas.png"
   },
   {
     "id": "abu_dhabi",
@@ -429,6 +429,6 @@
     "lap_record_holder": "Max Verstappen",
     "lap_record_year": 2021,
     "characteristics": ["Modern", "Night race", "Harbour setting"],
-    "map_image_url": "images/circuits/abu_dhabi.png"
+    "map_image_url": "images/abu_dhabi.png"
   }
 ]
