@@ -865,7 +865,7 @@ const raceOutputDiv = document.getElementById('race-output');
 async function loadRaceEvents() {
     raceOutputDiv.innerHTML = '<p class="text-gray-400 text-center p-4">Loading example race events...</p>';
     try {
-        const res = await fetch('./race_events.json');
+        const res = await fetch('race_events.json');
         if (!res.ok) {
             throw new Error(`HTTP error! Status: ${res.status}`);
         }
