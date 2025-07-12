@@ -21,10 +21,8 @@
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Chart.js CDN (if needed elsewhere, not directly used in this section) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!-- Google Fonts - Orbitron for F1-style text, Inter for body text -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -63,9 +61,9 @@
     color: #f4d35e;
   }
   .teams-grid {
-    display: flex; /* Tailwind's grid overrides this to 'grid' */
+    display: flex;
     flex-wrap: wrap;
-    gap: 2rem; /* Tailwind's 'gap-3' in HTML will override this */
+    gap: 2rem;
     justify-content: center;
   }
    .grid {
@@ -112,23 +110,20 @@
   .team-card {
     background: #1c1c1c;
     border-radius: 12px;
-    /* width: 340px; - Removed, as Tailwind grid columns will manage width */
-    overflow: hidden; /* Crucial to hide the team-info when max-height is 0 */
+    overflow: hidden;
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    /* Updated transition to include min-height and box-shadow */
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, min-height 0.4s ease-in-out;
     position: relative;
-    display: flex; /* Added for flex-direction: column */
-    flex-direction: column; /* Added to stack header, car, info vertically */
-    /* Set an initial height for the card when info is hidden */
-    min-height: 200px; /* Adjust this to fit your logo + car image nicely */
-    cursor: pointer; /* Indicate it's interactive */
+    display: flex; 
+    flex-direction: column;
+
+    min-height: 200px; 
+    cursor: pointer; 
   }
 
   .team-card:hover {
     transform: scale(1.03);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.6); /* Slightly larger shadow on hover */
-    /* Expand card height to reveal info. Adjust as needed for content. */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6); 
     min-height: 400px;
   }
 
@@ -136,9 +131,9 @@
     display: flex;
     align-items: center;
     padding: 1rem;
-    background-color: #1a1a2e; /* Added background for header contrast */
-    z-index: 2; /* Ensures header is on top */
-    position: relative; /* For z-index to work */
+    background-color: #1a1a2e;
+    z-index: 2; 
+    position: relative; 
   }
   .team-logo {
     width: 40px;
@@ -202,7 +197,7 @@
     font-weight: bold;
     color: #ff0000; 
   }
-  /* === DRIVERS SECTION CSS === */
+
 /* === DRIVER CARD F1 STYLE === */
 .driver-card {
   background-color: #111;
@@ -299,7 +294,7 @@
     justify-content: center;
     text-align: center;
     padding: 1rem;
-    height: 180px; /* Fixed height for cards in the grid */
+    height: 180px;
 }
 
 .circuit-card:hover {
@@ -309,7 +304,7 @@
 
 .circuit-card img {
     max-width: 90%;
-    max-height: 120px; /* Adjust as needed */
+    max-height: 120px;
     object-fit: contain;
     margin-bottom: 0.5rem;
 }
@@ -325,12 +320,12 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 100%; /* Ensure ellipsis works */
+    width: 100%; 
 }
 
 /* --- Overlay Styles --- */
 #circuit-detail-overlay.hidden {
-    display: none; /* Keep it completely out of flow when hidden */
+    display: none;
 }
 
 
@@ -338,49 +333,48 @@
 /* Hotspot styles */
 /* Styles for the interactive red circles on the car image */
 .hotspot {
-    position: absolute; /* Positioned relative to its parent (.relative.mx-auto.max-w-5xl) */
+    position: absolute; 
     width: 20px;
     height: 20px;
-    background-color: rgba(229, 9, 20, 0.7); /* F1 red with transparency */
-    border-radius: 50%; /* Makes it a circle */
-    cursor: pointer; /* Indicates it's interactive */
-    border: 2px solid rgba(255, 255, 255, 0.8); /* White border */
-    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out; /* Smooth hover effects */
-    transform: translate(-50%, -50%); /* Centers the hotspot precisely on its top/left coordinate */
-    z-index: 20; /* Ensures hotspots are above the car image */
+    background-color: rgba(229, 9, 20, 0.7); 
+    border-radius: 50%; 
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.8); 
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    transform: translate(-50%, -50%); 
+    z-index: 20; 
 }
 
 .hotspot:hover {
-    background-color: rgba(255, 255, 255, 0.9); /* White on hover */
-    transform: translate(-50%, -50%) scale(1.2); /* Enlarges on hover */
+    background-color: rgba(255, 255, 255, 0.9); 
+    transform: translate(-50%, -50%) scale(1.2); 
 }
 
 /* --- Tooltip Specific Styles --- */
 /* Styles for the pop-up box that shows details on hover */
 #hotspot-tooltip {
-    position: absolute; /* Positioned relative to its parent (.relative.mx-auto.max-w-5xl) */
-    background-color: rgba(0, 0, 0, 0.9); /* Dark background with slight transparency */
-    color: white; /* White text color */
+    position: absolute; 
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white; 
     padding: 10px 15px;
     border-radius: 8px;
-    max-width: 250px; /* Limits the width of the tooltip */
+    max-width: 250px;
     text-align: left;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Soft shadow */
-    z-index: 1000; /* Ensures the tooltip is on top of everything else */
-
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); 
+    z-index: 1000;
+  
     /* Crucial for visibility: Starts hidden and transitions smoothly */
-    opacity: 0; /* Initially fully transparent */
-    visibility: hidden; /* Initially hidden from rendering and accessibility tree */
-    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out; /* Smooth fade-in/out */
-    pointer-events: none; /* Allows mouse events to pass through to elements behind it, so you can hover on hotspots */
-}
+    opacity: 0; 
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+    pointer-events: none; 
 
 /* Styles for the title within the tooltip */
 #hotspot-tooltip strong {
-    color: #e50914; /* F1 red for the title */
-    font-family: 'Orbitron', sans-serif; /* F1-style font for the title */
-    display: block; /* Makes the title take its own line */
-    margin-bottom: 5px; /* Space below the title */
+    color: #e50914;
+    font-family: 'Orbitron', sans-serif; 
+    display: block; 
+    margin-bottom: 5px; 
     font-size: 1rem;
 }
 
@@ -418,7 +412,7 @@
 
 /* Specific styling for the 'Time' column to make it bold */
 .race-events-table td strong {
-    color: #00bcd4; /* A light blue color for emphasis */
+    color: #00bcd4;
 }
 
 
@@ -765,9 +759,6 @@
             <img src="images/f1car.png" alt="F1 Car" class="w-full rounded-lg shadow-md">
 
             <!-- Hotspots: Each div represents an interactive area -->
-            <!-- data-title: The main title for the tooltip -->
-            <!-- data-description: The detailed description for the tooltip -->
-            <!-- style: Position the hotspot using top and left percentages relative to the image container -->
             <div class="hotspot" style="top: 60%; left: 12%;" data-title="Front Wing" data-description="Controls front-end downforce and initial airflow."></div>
             <div class="hotspot" style="top: 55%; left: 37%;" data-title="Front Left Tire" data-description="Provides grip, balance, and braking."></div>
             <div class="hotspot" style="top: 34%; left: 50%;" data-title="Halo" data-description="Titanium safety bar protecting the driver."></div>
@@ -778,22 +769,18 @@
             <div class="hotspot" style="top: 50%; left: 89%;" data-title="Rear Left Tire" data-description="Pushes power to track; traction zone."></div>
 
             <!-- Tooltip: This element will display the hotspot details on hover -->
-            <!-- It starts hidden (opacity: 0, visibility: hidden in CSS) -->
-            <!-- pointer-events: none ensures it doesn't block mouse events on elements beneath it -->
             <div id="hotspot-tooltip" class="absolute z-50 bg-white text-black text-sm rounded px-3 py-2 shadow-md" style="pointer-events: none;"></div>
         </div>
     </div>
 </section>
 
 <script>
-// Get references to the hotspot elements, the tooltip, and the car image's parent container
 const hotspots = document.querySelectorAll('.hotspot');
 const tooltip = document.getElementById('hotspot-tooltip');
-const carSection = document.querySelector('#car .relative.mx-auto'); // This is the parent div of the image and hotspots
+const carSection = document.querySelector('#car .relative.mx-auto'); 
 
-// Iterate over each hotspot to attach event listeners
 hotspots.forEach(hotspot => {
-    let mouseMoveHandler; // Variable to store the mousemove function, so we can remove it later
+    let mouseMoveHandler; 
 
     // Event listener for when the mouse enters a hotspot
     hotspot.addEventListener('mouseover', function(e) {
@@ -815,31 +802,25 @@ hotspots.forEach(hotspot => {
             const carRect = carSection.getBoundingClientRect();
             
             // Calculate the tooltip's position relative to the car container
-            // Add a small offset (15px) so the tooltip doesn't directly cover the cursor
             let x = e.clientX - carRect.left - 100;
             let y = e.clientY - carRect.top - 15;
 
             // Boundary checks: Ensure the tooltip stays within the car image container
             // Adjust X position if it goes too far right
             if (x + tooltip.offsetWidth > carRect.width) {
-                x = carRect.width - tooltip.offsetWidth - 5; // Push it back into view
+                x = carRect.width - tooltip.offsetWidth - 5; 
             }
             // Adjust Y position if it goes too far down
             if (y + tooltip.offsetHeight > carRect.height) {
-                y = carRect.height - tooltip.offsetHeight - 5; // Push it back into view
+                y = carRect.height - tooltip.offsetHeight - 5;
             }
-            // Ensure X doesn't go too far left (minimum 5px from left edge)
+
             if (x < 0) x = 5;
-            // Ensure Y doesn't go too far up (minimum 5px from top edge)
             if (y < 0) y = 5;
 
-            // Apply the calculated position to the tooltip's style
             tooltip.style.left = `${x}px`;
             tooltip.style.top = `${y}px`;
         };
-
-        // Add the mousemove event listener to the car section.
-        // This makes the tooltip follow the mouse as long as it's within the car image area.
         carSection.addEventListener('mousemove', mouseMoveHandler);
     });
 
@@ -849,10 +830,10 @@ hotspots.forEach(hotspot => {
         tooltip.style.opacity = '0'; // Start fade-out
         // After the fade-out transition, set visibility to hidden
         tooltip.addEventListener('transitionend', function handleTransitionEnd() {
-            if (tooltip.style.opacity === '0') { // Only hide visibility if it has fully faded out
+            if (tooltip.style.opacity === '0') {
                 tooltip.style.visibility = 'hidden';
             }
-            tooltip.removeEventListener('transitionend', handleTransitionEnd); // Clean up listener
+            tooltip.removeEventListener('transitionend', handleTransitionEnd); 
         });
         
         // Remove the mousemove handler to stop updating position when not hovering
