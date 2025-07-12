@@ -1,0 +1,59 @@
+{
+  "events": [
+    {
+      "time": "0.000",
+      "type": "Session Start",
+      "message": "Formation lap begins."
+    },
+    {
+      "time": "120.000",
+      "type": "Race Start",
+      "message": "Lights out and away we go!"
+    },
+    {
+      "time": "205.123",
+      "type": "Fastest Lap",
+      "message": "Verstappen sets the fastest lap of the race: 1:25.123"
+    },
+    {
+      "time": "350.500",
+      "type": "Pit Stop",
+      "message": "Leclerc pits for hard tires."
+    },
+    {
+      "time": "480.000",
+      "type": "Incident",
+      "message": "Minor contact between Russell and Sainz at Turn 1."
+    },
+    {
+      "time": "600.000",
+      "type": "Safety Car",
+      "message": "Safety Car deployed due to debris on track."
+    },
+    {
+      "time": "780.000",
+      "type": "Safety Car End",
+      "message": "Safety Car in, racing resumes."
+    },
+    {
+      "time": "950.876",
+      "type": "Fastest Lap",
+      "message": "Hamilton improves the fastest lap: 1:24.876"
+    },
+    {
+      "time": "1200.000",
+      "type": "Pit Stop",
+      "message": "Verstappen pits for medium tires."
+    },
+    {
+      "time": "1500.000",
+      "type": "Chequered Flag",
+      "message": "Race ends! Verstappen wins the Grand Prix."
+    },
+    {
+      "time": "1510.000",
+      "type": "Podium",
+      "message": "Verstappen, Perez, and Alonso on the podium."
+    }
+  ]
+}

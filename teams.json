@@ -1,0 +1,202 @@
+[
+  {
+    "team_name": "Red Bull Racing",
+    "logo_url": "images/teams/redbull.png",
+    "established": 2005,
+    "country": "UK",
+    "team_principal": "Christian Horner",
+    "championships": {
+      "constructors": 6,
+      "drivers": 7
+    },
+    "car_name": "RB20",
+    "strategy_style": "High downforce & aggressive pit strategies",
+    "notable_drivers": [
+      "Sebastian Vettel",
+      "Max Verstappen"
+    ],
+    "description": "Dominant force in recent seasons with sharp aero design and fast pit stops.",
+    "car_image": "images/cars/redbull2025.png",
+    "primary_color": "#3671C6"
+  },
+  {
+    "team_name": "Ferrari",
+    "logo_url": "images/teams/ferrari.png",
+    "established": 1950,
+    "country": "Italy",
+    "team_principal": "Fr\u00e9d\u00e9ric Vasseur",
+    "championships": {
+      "constructors": 16,
+      "drivers": 15
+    },
+    "car_name": "SF-25",
+    "strategy_style": "Aggressive qualifying, high top-speed tracks",
+    "notable_drivers": [
+      "Michael Schumacher",
+      "Charles Leclerc"
+    ],
+    "description": "Historic Italian team with a massive global fanbase and legacy.",
+    "car_image": "images/cars/ferrari2025.png",
+    "primary_color": "#E8002D"
+  },
+  {
+    "team_name": "Mercedes",
+    "logo_url": "images/teams/mercedes.png",
+    "established": 2010,
+    "country": "Germany",
+    "team_principal": "Toto Wolff",
+    "championships": {
+      "constructors": 8,
+      "drivers": 9
+    },
+    "car_name": "W15",
+    "strategy_style": "Balanced pace and tire management",
+    "notable_drivers": [
+      "Lewis Hamilton",
+      "Nico Rosberg"
+    ],
+    "description": "German powerhouse that dominated the hybrid era.",
+    "car_image": "images/cars/mercedes2025.png",
+    "primary_color": "#00D2BE"
+  },
+  {
+    "team_name": "McLaren",
+    "logo_url": "images/teams/mclaren.png",
+    "established": 1966,
+    "country": "UK",
+    "team_principal": "Andrea Stella",
+    "championships": {
+      "constructors": 8,
+      "drivers": 12
+    },
+    "car_name": "MCL60",
+    "strategy_style": "Strong in mid-race pace",
+    "notable_drivers": [
+      "Ayrton Senna",
+      "Lando Norris"
+    ],
+    "description": "Former champions aiming for a comeback with young talents.",
+    "car_image": "images/cars/mclaren2025.png",
+    "primary_color": "#FF8000"
+  },
+  {
+    "team_name": "Aston Martin",
+    "logo_url": "images/teams/astonmartin.png",
+    "established": 2021,
+    "country": "UK",
+    "team_principal": "Mike Krack",
+    "championships": {
+      "constructors": 0,
+      "drivers": 0
+    },
+    "car_name": "AMR24",
+    "strategy_style": "Tactical and defensive",
+    "notable_drivers": [
+      "Fernando Alonso",
+      "Lance Stroll"
+    ],
+    "description": "A rebranded team gaining momentum with experience and funding.",
+    "car_image": "images/cars/astonmartin2025.png",
+    "primary_color": "#006F62"
+  },
+  {
+    "team_name": "Alpine",
+    "logo_url": "images/teams/alpine.png",
+    "established": 2021,
+    "country": "France",
+    "team_principal": "Bruno Famin",
+    "championships": {
+      "constructors": 0,
+      "drivers": 2
+    },
+    "car_name": "A524",
+    "strategy_style": "Development-focused and consistent",
+    "notable_drivers": [
+      "Esteban Ocon",
+      "Pierre Gasly"
+    ],
+    "description": "French team evolving out of Renault with growing aspirations.",
+    "car_image": "images/cars/alpine2025.png",
+    "primary_color": "#0090FF"
+  },
+  {
+    "team_name": "Williams",
+    "logo_url": "images/teams/williams.png",
+    "established": 1977,
+    "country": "UK",
+    "team_principal": "James Vowles",
+    "championships": {
+      "constructors": 9,
+      "drivers": 7
+    },
+    "car_name": "FW47",
+    "strategy_style": "Development under rebuild",
+    "notable_drivers": [
+      "Nigel Mansell",
+      "Alex Albon"
+    ],
+    "description": "Historic team working towards a comeback with solid driver lineup.",
+    "car_image": "images/cars/williams2025.png",
+    "primary_color": "#005AFF"
+  },
+  {
+    "team_name": "Haas",
+    "logo_url": "images/teams/haas.png",
+    "established": 2016,
+    "country": "USA",
+    "team_principal": "Ayao Komatsu",
+    "championships": {
+      "constructors": 0,
+      "drivers": 0
+    },
+    "car_name": "VF-24",
+    "strategy_style": "Conservative & reliability-focused",
+    "notable_drivers": [
+      "Nico H\u00fclkenberg",
+      "Kevin Magnussen"
+    ],
+    "description": "America\u2019s only team, focusing on survival and progress.",
+    "car_image": "images/cars/haas2025.png",
+    "primary_color": "#C4C4C4"
+  },
+  {
+    "team_name": "Kick Sauber",
+    "logo_url": "images/teams/kicksauber.png",
+    "established": 1993,
+    "country": "Switzerland",
+    "team_principal": "Alessandro Alunni Bravi",
+    "championships": {
+      "constructors": 0,
+      "drivers": 0
+    },
+    "car_name": "C44",
+    "strategy_style": "New brand, renewed push for midfield dominance",
+    "notable_drivers": [
+      "Valtteri Bottas",
+      "Zhou Guanyu"
+    ],
+    "description": "Transitioning to Audi partnership and looking to rebuild.",
+    "car_image": "images/cars/kicksauber2025.png",
+    "primary_color": "#00FF00"
+  },
+  {
+    "team_name": "Racing Bulls",
+    "logo_url": "images/teams/racingbulls.png",
+    "established": 2006,
+    "country": "Italy",
+    "team_principal": "Laurent Mekies",
+    "championships": {
+      "constructors": 0,
+      "drivers": 0
+    },
+    "car_name": "VCARB01",
+    "strategy_style": "Feeder team to Red Bull",
+    "notable_drivers": [
+      "Yuki Tsunoda",
+      "Daniel Ricciardo"
+    ],
+    "description": "Development squad with links to Red Bull Racing.",
+    "car_image": "images/cars/racingbulls2025.png",
+    "primary_color": "#00205B"
+  }
+]
